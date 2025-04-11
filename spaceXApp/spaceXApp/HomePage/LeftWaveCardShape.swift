@@ -16,9 +16,9 @@ struct CardWithBottomRightCutout: Shape {
         let h = rect.height
         let cornerRadius: CGFloat = 30
 
-        let cutoutWidth: CGFloat = 90
-        let cutoutHeight: CGFloat = 70
-        let cutoutRadius: CGFloat = 20
+        let cutoutWidth: CGFloat = 160
+        let cutoutHeight: CGFloat = 60
+        let cutoutRadius: CGFloat = 40
 
         path.move(to: CGPoint(x: cornerRadius, y: 0))
 

@@ -30,7 +30,7 @@ struct CustomCard: View {
             }
             .padding()
         }
-        .frame(height: 120)
+        .frame(height: 200)
         .padding(.horizontal)
     }
 }
