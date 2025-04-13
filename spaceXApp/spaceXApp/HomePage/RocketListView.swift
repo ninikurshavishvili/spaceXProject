@@ -13,22 +13,30 @@ struct RocketListView: View {
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(spacing: 20) {
-                    if viewModel.isLoading {
-                        ProgressView("Loading Rockets...")
-                    } else if let error = viewModel.errorMessage {
-                        Text("Error: \(error)")
-                            .foregroundColor(.red)
-                    } else {
-                        ForEach(viewModel.rockets, id: \.id) { rocket in
-                            CustomCard(rocket: rocket)
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
+
+                ScrollView {
+                    VStack(spacing: 20) {
+                        if viewModel.isLoading {
+                            ProgressView("Loading Rockets...")
+                                .foregroundColor(.white)
+                        } else if let error = viewModel.errorMessage {
+                            Text("Error: \(error)")
+                                .foregroundColor(.red)
+                        } else {
+                            ForEach(viewModel.rockets, id: \.id) { rocket in
+                                CustomCard(rocket: rocket)
+                            }
                         }
                     }
+                    .padding()
                 }
-                .padding()
             }
             .navigationTitle("SpaceX Rockets")
+            .navigationBarTitleDisplayMode(.inline)
+            .foregroundColor(.white)
         }
         .task {
             await viewModel.loadRockets()

@@ -12,6 +12,12 @@ struct CustomCard: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             CardWithBottomRightCutout()
+                .fill(Color.black)
+                .overlay(
+                    CardWithBottomRightCutout()
+                        .stroke(Color.white, lineWidth: 1)
+                )
+
                 .frame(height: 220)
                 .shadow(radius: 4)
 
@@ -20,11 +26,15 @@ struct CustomCard: View {
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
-
-                Text(rocket.country)
-                    .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.8))
-                    .lineLimit(3)
+                
+                HStack(spacing: 4) {
+                    Image(systemName: "location.fill")
+                        .foregroundColor(.white.opacity(0.8))
+                    Text(rocket.country)
+                        .font(.subheadline)
+                        .foregroundColor(.white.opacity(0.8))
+                        .lineLimit(3)
+                }
 
             }
             .padding(.top, 30)
@@ -47,7 +57,50 @@ struct CustomCard: View {
             .clipShape(Circle())
             .overlay(Circle().stroke(Color.white, lineWidth: 2))
             .offset(x: 20, y: 20)
+            
+
+            VStack {
+                Spacer()
+                HStack {
+                    Button(action: {
+                        print("Round button tapped!")
+                    }) {
+                        Image(systemName: "suit.heart.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 16, height: 16)
+                            .padding()
+                            .background(Color.white.opacity(0.2))
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
+                    }
+                    .padding(.leading, 2)
+                    .padding(.bottom, 15)
+
+                    Spacer()
+
+                    Button(action: {
+                        print("Learn more tapped!")
+                    }) {
+                        Text("Learn more")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(width: 140, height: 45)
+                            .background(
+                                RoundedRectangle(cornerRadius: 22)
+                                    .fill(Color.black)
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 22)
+                                    .stroke(Color.white, lineWidth: 1)
+                            )
+                    }
+                    .padding(.trailing, -5)
+                    .padding(.bottom, -5)
+                }
+            }
+            
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
     }
 }
