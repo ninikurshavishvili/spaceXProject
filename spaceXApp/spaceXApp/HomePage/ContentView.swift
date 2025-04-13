@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let rocket: Rocket
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Hi")
@@ -17,13 +19,12 @@ struct ContentView: View {
             Text("something text here")
                 .font(.headline)
 
-            CustomCard()
-            CustomCard()
+            CustomCard(rocket: rocket)
         }
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    CustomCard(rocket: rocket)
+//}
 
