@@ -12,15 +12,15 @@ struct CustomCard: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             CardWithBottomRightCutout()
-                .fill(Color.black)
+                .fill(Color.gray.opacity(0.2))
                 .overlay(
                     CardWithBottomRightCutout()
                         .stroke(Color.white, lineWidth: 1)
                 )
-
+            
                 .frame(height: 220)
                 .shadow(radius: 4)
-
+            
             VStack(alignment: .leading, spacing: 8) {
                 Text(rocket.name)
                     .font(.title2)
@@ -35,11 +35,11 @@ struct CustomCard: View {
                         .foregroundColor(.white.opacity(0.8))
                         .lineLimit(3)
                 }
-
+                
             }
             .padding(.top, 30)
             .padding(.leading, 100)
-
+            
             AsyncImage(url: URL(string: rocket.flickr_images.first ?? "")) { phase in
                 if let image = phase.image {
                     image
@@ -58,7 +58,7 @@ struct CustomCard: View {
             .overlay(Circle().stroke(Color.white, lineWidth: 2))
             .offset(x: 20, y: 20)
             
-
+            
             VStack {
                 Spacer()
                 HStack {
@@ -70,15 +70,18 @@ struct CustomCard: View {
                             .scaledToFit()
                             .frame(width: 16, height: 16)
                             .padding()
-                            .background(Color.white.opacity(0.2))
+                            .background(
+                                Circle()
+                                    .fill(Color.gray.opacity(0.2))
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                            )
                             .foregroundColor(.white)
-                            .clipShape(Circle())
                     }
                     .padding(.leading, 2)
                     .padding(.bottom, 15)
-
+                    
                     Spacer()
-
+                    
                     Button(action: {
                         print("Learn more tapped!")
                     }) {
@@ -88,19 +91,18 @@ struct CustomCard: View {
                             .frame(width: 140, height: 45)
                             .background(
                                 RoundedRectangle(cornerRadius: 22)
-                                    .fill(Color.black)
-                            )
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 22)
-                                    .stroke(Color.white, lineWidth: 1)
+                                    .fill(Color.gray.opacity(0.2))
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 22)
+                                            .stroke(Color.white, lineWidth: 1)
+                                    )
                             )
                     }
                     .padding(.trailing, -5)
                     .padding(.bottom, -5)
                 }
+                .padding(.horizontal)
             }
-            
-            .padding(.horizontal)
         }
     }
 }
