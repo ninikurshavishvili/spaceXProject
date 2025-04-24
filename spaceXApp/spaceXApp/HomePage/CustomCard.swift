@@ -11,11 +11,11 @@ struct CustomCard: View {
     let rocket: Rocket
     var body: some View {
         ZStack(alignment: .topLeading) {
-            CardWithBottomRightCutout()
+            RocketCardShape()
                 .fill(Color.gray.opacity(0.2))
                 .overlay(
-                    CardWithBottomRightCutout()
-                        .stroke(Color.white, lineWidth: 1)
+                    RocketCardShape()
+                        .stroke(Color.white, lineWidth: 0.4)
                 )
             
                 .frame(height: 220)
@@ -55,7 +55,7 @@ struct CustomCard: View {
             }
             .frame(width: 60, height: 60)
             .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+            .overlay(Circle().stroke(Color.white, lineWidth: 0.4))
             .offset(x: 20, y: 20)
             
             
@@ -73,7 +73,7 @@ struct CustomCard: View {
                             .background(
                                 Circle()
                                     .fill(Color.gray.opacity(0.2))
-                                    .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                                    .overlay(Circle().stroke(Color.white, lineWidth: 0.4))
                             )
                             .foregroundColor(.white)
                     }
@@ -94,7 +94,7 @@ struct CustomCard: View {
                                     .fill(Color.gray.opacity(0.2))
                                     .overlay(
                                         RoundedRectangle(cornerRadius: 22)
-                                            .stroke(Color.white, lineWidth: 1)
+                                            .stroke(Color.white, lineWidth: 0.4)
                                     )
                             )
                     }

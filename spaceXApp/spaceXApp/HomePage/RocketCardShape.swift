@@ -1,5 +1,5 @@
 //
-//  LeftWaveCardShape.swift
+//  RocketCardShape.swift
 //  spaceXApp
 //
 //  Created by Nino Kurshavishvili on 11.04.25.
@@ -8,19 +8,21 @@
 
 import SwiftUI
 
-struct CardWithBottomRightCutout: Shape {
+struct RocketCardShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
         let w = rect.width
         let h = rect.height
         let cornerRadius: CGFloat = 30
-        
         let outerCornerRadius: CGFloat = 50
 
         let cutoutWidth: CGFloat = 160
         let cutoutHeight: CGFloat = 65
         let cutoutRadius: CGFloat = 40
+
+        let sideCutoutRadius: CGFloat = 20
+        let sideCutoutYOffset: CGFloat = h / 2
 
         path.move(to: CGPoint(x: outerCornerRadius, y: 0))
 
@@ -45,7 +47,13 @@ struct CardWithBottomRightCutout: Shape {
         path.addQuadCurve(to: CGPoint(x: 0, y: h - outerCornerRadius),
                           control: CGPoint(x: 0, y: h))
 
+        path.addLine(to: CGPoint(x: 0, y: sideCutoutYOffset + sideCutoutRadius))
+        path.addQuadCurve(to: CGPoint(x: sideCutoutRadius, y: sideCutoutYOffset),
+                          control: CGPoint(x: 0, y: sideCutoutYOffset))
+        path.addQuadCurve(to: CGPoint(x: 0, y: sideCutoutYOffset - sideCutoutRadius),
+                          control: CGPoint(x: 0, y: sideCutoutYOffset))
         path.addLine(to: CGPoint(x: 0, y: outerCornerRadius))
+
         path.addQuadCurve(to: CGPoint(x: outerCornerRadius, y: 0),
                           control: CGPoint(x: 0, y: 0))
 
@@ -53,6 +61,7 @@ struct CardWithBottomRightCutout: Shape {
         return path
     }
 }
+
 
 
 
