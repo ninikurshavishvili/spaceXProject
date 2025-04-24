@@ -20,6 +20,7 @@ struct RocketListView: View {
                     .ignoresSafeArea()
 
                 ScrollView {
+                    
                     VStack(spacing: 20) {
                         if viewModel.isLoading {
                             ProgressView("Loading Rockets...")
@@ -28,6 +29,9 @@ struct RocketListView: View {
                             Text("Error: \(error)")
                                 .foregroundColor(.red)
                         } else {
+                            Text("Exprore Your Favourite one")
+                                .font(.title)
+                                .foregroundStyle(.white)
                             ForEach(viewModel.rockets, id: \.id) { rocket in
                                 CustomCard(rocket: rocket)
                             }
