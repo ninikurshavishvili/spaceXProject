@@ -48,7 +48,7 @@ struct MainTabView: View {
                     .background(.ultraThinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 30))
                     .padding(.horizontal, 60)
-                    .padding(.bottom, 20)
+//                    .padding(.bottom)
                     
                     Spacer()
                 }

@@ -14,9 +14,7 @@ struct RocketListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Image("Background")
-                    .resizable()
-                    .scaledToFill()
+                Color.black
                     .ignoresSafeArea()
 
                 ScrollView {
@@ -42,7 +40,7 @@ struct RocketListView: View {
             }
             .navigationTitle("SpaceX Rockets")
             .navigationBarTitleDisplayMode(.inline)
-            .foregroundColor(.white)
+            .foregroundColor(.black)
         }
         .task {
             await viewModel.loadRockets()
