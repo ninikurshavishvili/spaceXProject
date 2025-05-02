@@ -33,23 +33,47 @@ struct MainTabView: View {
                         Button(action: {
                             selectedTab = 0
                         }) {
-                            Image(systemName: "moonphase.new.moon")
+                            Image("home")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .tint(Color.white)
                                 .foregroundColor(selectedTab == 0 ? .white : .gray)
                         }
-
+                        
                         Button(action: {
                             selectedTab = 1
                         }) {
-                            Image(systemName: "moonphase.waxing.crescent")
+                            Image("planet")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .tint(Color.white)
+                                .foregroundColor(selectedTab == 1 ? .white : .gray)
+                        }
+                        
+                        Button(action: {
+                            selectedTab = 1
+                        }) {
+                            Image("heart")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .tint(Color.white)
+                                .foregroundColor(selectedTab == 1 ? .white : .gray)
+                        }
+                        
+                        Button(action: {
+                            selectedTab = 1
+                        }) {
+                            Image("person")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .tint(Color.white)
                                 .foregroundColor(selectedTab == 1 ? .white : .gray)
                         }
                     }
                     .padding()
                     .background(.ultraThinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 30))
-                    .padding(.horizontal, 60)
-//                    .padding(.bottom)
-                    
+                    .padding(.horizontal, 10)
                     Spacer()
                 }
             }

@@ -27,9 +27,18 @@ struct RocketListView: View {
                             Text("Error: \(error)")
                                 .foregroundColor(.red)
                         } else {
-                            Text("Exprore Your Favourite one")
-                                .font(.title)
-                                .foregroundStyle(.white)
+                            HStack {
+                                Text("Hi, NINI")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.white)
+                                    .padding()
+                                Spacer()
+                                Image(systemName: "person")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.white)
+                                    .padding()
+                            }
                             ForEach(viewModel.rockets, id: \.id) { rocket in
                                 CustomCard(rocket: rocket)
                             }
