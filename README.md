@@ -5,9 +5,8 @@ A SwiftUI iOS application that displays SpaceX rockets using the official SpaceX
 ## Screenshots
 
 <p align="center">
-  <img src="AppScreens/screenshot1.png" width="250" alt="Home Screen"/>
-  <img src="AppScreens/screenshot2.png" width="250" alt="Rocket Details"/>
-  <img src="AppScreens/screenshot3.png" width="250" alt="Rocket List"/>
+  <img src="spaceXApp/spaceXApp/AppScreens/Screenshot 2026-02-27 at 15.03.52 1.png" width="250" alt="Home Screen"/>
+  <img src="spaceXApp/spaceXApp/AppScreens/Screenshot 2026-02-27 at 15.04.31 1.png" width="250" alt="Rocket Details"/>
 </p>
 
 ## Features
